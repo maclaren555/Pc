@@ -1,0 +1,61 @@
+/* Cross-browser compatibility styles */
+
+/* Reset and normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix for iOS Safari viewport units */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Fix for Firefox focus outline */
+@-moz-document url-prefix() {
+  button::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+/* Fix for Safari button styling */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Fix for Chrome autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--color-background) inset !important;
+  -webkit-text-fill-color: var(--color-foreground) !important;
+}
+
+/* Fix for Edge/IE grid support */
+@supports not (display: grid) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Fix for older browsers without CSS custom properties */
+@supports not (--css: variables) {
+  :root {
+    --color-background: #ffffff;
+    --color-foreground: #000000;
+  }
+}
